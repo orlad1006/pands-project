@@ -13,11 +13,17 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 
-# to download the data set and add to my git hub respository
+# I opened the data set from http://archive.ics.uci.edu/ml/datasets/Iris repository using VS code
+#I created a file called in my pands project folder called irisdata.txt which I copied and pasted
+#the data into and pushed to my respository
 
-filename = 'IrisDataSet.txt'    # df stands for dataframe
+
+
+
+filename = 'irisdata.txt'    # df stands for dataframe
 df = pd.read_csv(filename)      # this will read the data in csv format from the .txt 
 
 
 # we will then base all of our analysis from this table.
 
+setosa=df[df['species']=='setosa']
