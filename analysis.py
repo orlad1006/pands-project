@@ -17,9 +17,9 @@ import seaborn as sns
 #I created a file called in my pands project folder called iris 
 
 
-filename = 'iris.txt'
+filename = 'iris_dataset.data'
 
-col_names = ['Sepal_Length','Sepal_Width','Petal_Length','Petal_Width','Class']
+col_names = ['Sepal_Length','Sepal_Width','Petal_Length','Petal_Width','Species']
 
 df =  pd.read_csv(filename, names = col_names) 
 
@@ -29,9 +29,15 @@ df =  pd.read_csv(filename, names = col_names)
 # use the df.head() and df.tail() function to see first and last 5 row
 #print to output
 
-print(df.head())
-print(df.tail())
-print(df.dtypes)
+#print(df.head())
+#print(df.tail())
+#print(df.dtypes)
+# summary of variables 
+
+with open('iris.txt', 'w') as f:     # Opens files without having to use the close() function, write mode
+    f.write(df.describe().to_string())  # Converts summary data to a string and writes it to a .txt file
+
+#print(df.describe)
 
 
 
@@ -40,4 +46,3 @@ print(df.dtypes)
 
 
 # we will then base all of our analysis from this table.
-
