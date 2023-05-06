@@ -26,6 +26,18 @@ df =  pd.read_csv(filename, names = col_names)
 #df = dataframe
 # this will read the data in csv format, and pass in column names as an argument
 
+# use the df.head() and df.tail() function to see first and last 5 row
+#print to output
+
+print(df.head())
+print(df.tail())
+print(df.dtypes)
+
+
+
+
+
+
 
 # we will then base all of our analysis from this table.
 
