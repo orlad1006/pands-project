@@ -33,13 +33,14 @@ df =  pd.read_csv(filename, names = col_names)
 #print(df.tail())
 #print(df.dtypes)
 # summary of variables 
-
-with open('iris.txt', 'w') as f:     # Opens files without having to use the close() function, write mode
-    f.write(df.describe().to_string())  # Converts summary data to a string and writes it to a .txt file
+#with open('iris.txt', 'w') as f:
+#     # Opens files without having to use the close() function, write mode
+   # f.write(df.describe().to_string())  # Converts summary data to a string and writes it to a .txt file
 
 #print(df.describe)
 
-
+with open('iris_species.txt', 'w') as f:
+    f.write(df.value_counts("Species").to_string())  # how may species and coount of eac, write to .txt file
 
 
 
