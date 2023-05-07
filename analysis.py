@@ -39,11 +39,105 @@ df =  pd.read_csv(filename, names = col_names)
 
 #print(df.describe)
 
+#with open('iris_species.txt', 'w') as f:
+    #f.write(df.value_counts("Species").to_string())  # how may species and coount of eac, write to .txt file
+
+# separated the three species within the df 
+'''
+setosa=df[df['Species']=='Iris-setosa']
+versicolor=df[df['Species']=='Iris-versicolor']
+virginica=df[df['Species']=='Iris-virginica']
+
+
+# compute satistical summary for each species type 
+#variable will be in string format
+setosa = str(setosa.describe())
+versicolor = str(versicolor.describe())
+virginica = str(virginica.describe())
+
+
+# write the variable *(stats for each species) a file iris_species.txt 
 with open('iris_species.txt', 'w') as f:
-    f.write(df.value_counts("Species").to_string())  # how may species and coount of eac, write to .txt file
+    f.write("\n SETOSA DETAILS \n") # heading one new line
+    f.write(setosa)
+    f.write("\n VERSICOLOR DETAILS\n") # heading one new line
+    f.write(versicolor)
+    f.write("\n VIRGINICA DETAILS\n") # heading one new line
+    f.write(virginica)
+
+'''
+
+
+# Histogram for each variable - all data together, not species specific
+# code taken from [7] for histogram
+
+
+# 1st sepal lenght
+
+plt.figure(figsize = (10, 7)) # change width and height of figure
+x = df["Sepal_Length"]
+
+plt.hist(x, bins = 20, color = "green")
+plt.title("Sepal Length in cm")
+plt.xlabel("Sepal_Length_cm")
+plt.ylabel("Count")
+
+plt.savefig("Hist Sepal length.png")
+
+
+# 2nd Sepal width 
+
+plt.figure(figsize = (10, 7)) # change width and height of figure
+x = df["Sepal_Width"]
+
+plt.hist(x, bins = 20, color = "blue")
+plt.title("Sepal Width in cm")
+plt.xlabel("Sepal_Width_cm")
+plt.ylabel("Count")
+
+plt.savefig("Hist Sepal width.png")
+
+
+# 3rd Petal Lenght
+
+plt.figure(figsize = (10, 7)) # change width and height of figure
+x = df["Petal_Length"]
+
+plt.hist(x, bins = 20, color = "red")
+plt.title("Petal Length in cm")
+plt.xlabel("Petal_Length_cm")
+plt.ylabel("Count")
+
+plt.savefig("Hist Petal Length.png")
+
+
+# 4th Petal Width 
+
+plt.figure(figsize = (10, 7)) # change width and height of figure
+x = df["Petal_Width"]
+
+plt.hist(x, bins = 20, color = "yellow")
+plt.title("Petal Width in cm")
+plt.xlabel("Petal_Width_cm")
+plt.ylabel("Count")
+
+plt.savefig("Hist Petal Width.png")
 
 
 
 
+#5th species 
 
-# we will then base all of our analysis from this table.
+plt.figure(figsize = (10, 7)) # change width and height of figure
+x = df["Species"]
+
+plt.hist(x, bins = 10, color = "orange")
+plt.title("Species of Iris")
+plt.xlabel("Species")
+plt.ylabel("Count")
+
+plt.savefig("Hist Species.png")
+
+plt.show()
+
+
