@@ -145,18 +145,17 @@ plt.show()
 # pair : Sepal lenght vd width 
 # pair : Petal Lenght vs Width
 
-'''
-sns.scatterplot(data=df, x='Sepal_Length', y='Sepal_Width', hue='Species', )# differentiate between the three species in each scatter plot by colour/hue. Could also use
-#size and style of dot.
-plt.legend(bbox_to_anchor=(1, 1), loc='upper left') # put legend outside box on upper right, code from [12]
+
+sns.scatterplot(data=df, x='Sepal_Length', y='Sepal_Width', hue='Species', legend = 'auto')# differentiate between the three species in each scatter plot by colour/hue. Could also use
+#size and style of dot, legend placed in automatic best location
 plt.savefig("Scatterbox_Sepal.png")
 
 '''
-sns.scatterplot(data=df, x='Petal_Length', y='Petal_Width', hue='Species')# differentiate between the three species in each scatter plot by colour/hue. Could also use
+sns.scatterplot(data=df, x='Petal_Length', y='Petal_Width', hue='Species', legend ='auto') # differentiate between the three species in each scatter plot by colour/hue. Could also use
 #size and style of dot.
-plt.legend(bbox_to_anchor=(1, 1), loc=2) # put the legend outside the figure, code from  [12]
-plt.savefig("Scatterboc_Petal.png")
-'''
+plt.savefig("Scatterbox_Petal.png")
+
+
 
 
 
