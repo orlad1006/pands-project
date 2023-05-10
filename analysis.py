@@ -150,10 +150,12 @@ sns.scatterplot(data=df, x='Sepal_Length', y='Sepal_Width', hue='Species', legen
 #size and style of dot, legend placed in automatic best location
 plt.savefig("Scatterbox_Sepal.png")
 
-'''
+
 sns.scatterplot(data=df, x='Petal_Length', y='Petal_Width', hue='Species', legend ='auto') # differentiate between the three species in each scatter plot by colour/hue. Could also use
 #size and style of dot.
 plt.savefig("Scatterbox_Petal.png")
+
+'''
 
 
 
