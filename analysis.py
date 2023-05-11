@@ -151,16 +151,44 @@ sns.scatterplot(data=df, x='Sepal_Length', y='Sepal_Width', hue='Species', legen
 plt.savefig("Scatterbox_Sepal.png")
 
 
-sns.scatterplot(data=df, x='Petal_Length', y='Petal_Width', hue='Species', legend ='auto') # differentiate between the three species in each scatter plot by colour/hue. Could also use
-#size and style of dot.
-plt.savefig("Scatterbox_Petal.png")
+
+#Correlation between variables. Code from [13]
+
+print(df.corr(method='pearson'))
+
+
+###
 
 '''
 
 
+#Multivariate Analysis: code from [15]
+#I tried to create a pair plot with the following code
+# each time I ran the code it went into a loop 
+# and I had to ctl + C to abort in the terminal
+#Couldn't figure out what was wrong
+
+#sns.pairplot (df, hue = 'Species')
+
+#plt.show()
+#plt.close()
+ 
+
+#Linear Regression model
+# seaborn.regplot code taken from [16,17]
 
 
+#plot the regplot, pass x ans y variables as strings, line-kws ( pass arhuments for line in Dict
+# colour, transparancy, with of line)
 
+# From the correlation coeffient 
+# #plot the variables that showed the strong positive correltion petal length and width 
+#sns.regplot(x=df["Petal_Length"], y=df["Petal_Width"], line_kws={"color":"green","alpha":0.7,"lw":5})
+#plt.show()#
+#plt.savefig(regplot_sepal)
+# #plot the variables that showed the least correlation correltion petal length and width 
+sns.regplot(x=df["Sepal_Width"], y=df["Sepal_Length"], line_kws={"color":"red","alpha":0.7,"lw":5})
 
+plt.show()
 
 
