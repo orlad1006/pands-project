@@ -12,6 +12,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
+import sklearn as sk
+
+
 
 # I opened the data set from http://archive.ics.uci.edu/ml/datasets/Iris repository using VS code
 #I created a file called in my pands project folder called iris 
@@ -42,7 +45,9 @@ df =  pd.read_csv(filename, names = col_names)
 #with open('iris_species.txt', 'w') as f:
     #f.write(df.value_counts("Species").to_string())  # how may species and coount of eac, write to .txt file
 
-# separated the three species within the df 
+# separated the three species within the df  
+
+
 '''
 setosa=df[df['Species']=='Iris-setosa']
 versicolor=df[df['Species']=='Iris-versicolor']
@@ -159,7 +164,6 @@ print(df.corr(method='pearson'))
 
 ###
 
-'''
 
 
 #Multivariate Analysis: code from [15]
@@ -185,10 +189,33 @@ print(df.corr(method='pearson'))
 # #plot the variables that showed the strong positive correltion petal length and width 
 #sns.regplot(x=df["Petal_Length"], y=df["Petal_Width"], line_kws={"color":"green","alpha":0.7,"lw":5})
 #plt.show()#
-#plt.savefig(regplot_sepal)
+#plt.savefig(regplot_petal)
 # #plot the variables that showed the least correlation correltion petal length and width 
 sns.regplot(x=df["Sepal_Width"], y=df["Sepal_Length"], line_kws={"color":"red","alpha":0.7,"lw":5})
 
 plt.show()
 
+
+
+# box plots code from [19] 
+# combining x and y arguments to plot multiple box  of petal length by species
+
+fig, ax = plt.subplots(1, figsize=(10, 10)) # change size of plot 
+sns.boxplot(data=df, x="Species", y = "Petal_Length" )
+plt.show()
+
+
+
+
+# combining x and y arguments to plot multiple box  of sepa; length by species
+
+fig, ax = plt.subplots(1, figsize=(10, 10)) # change size of plot 
+sns.boxplot(data=df, x="Species", y = "Sepal_Length" )
+plt.show()
+'''
+
+#plt.close()
+
+# MACHINE LEARNING code adapted from [20]
+#Supervised  machine learning
 
