@@ -212,10 +212,41 @@ plt.show()
 fig, ax = plt.subplots(1, figsize=(10, 10)) # change size of plot 
 sns.boxplot(data=df, x="Species", y = "Sepal_Length" )
 plt.show()
-'''
+
 
 #plt.close()
 
-# MACHINE LEARNING code adapted from [20]
+# MACHINE LEARNING code adapted from [20] using Sklearn
 #Supervised  machine learning
 
+
+# Import necessary libraries
+
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+
+#Code adapted from [20, 21
+
+# Split the data into training and testing sets, 
+# # i.e. 70 % training dataset and 30 % test datasets test-size 0.3
+X_train, X_test, y_train, y_test = train_test_split(df.drop('Species', axis=1), df['Species'], test_size=0.3, random_state=42)
+
+# Create a random forest classifier model
+rfc = RandomForestClassifier()
+
+# # Training the model on the training dataset
+# fit function is used to train the model using the training sets as parameters
+rfc.fit(X_train, y_train)
+
+# Make predictions on the testing set
+y_pred = rfc.predict(X_test)
+
+# Evaluate the model's accuracy 
+accuracy = accuracy_score(y_test, y_pred)
+# output to 2 decimal places and muliple by 100 for %
+print("Accuracy: {:.2f}%".format(accuracy*100))
+
+'''
+
+#Unsupervised learning  
