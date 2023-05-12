@@ -32,18 +32,19 @@ df =  pd.read_csv(filename, names = col_names)
 # use the df.head() and df.tail() function to see first and last 5 row
 #print to output
 
-#print(df.head())
-#print(df.tail())
-#print(df.dtypes)
+print(df.head())
+print(df.tail())
+print(df.dtypes)
+
 # summary of variables 
-#with open('iris.txt', 'w') as f:
-#     # Opens files without having to use the close() function, write mode
-   # f.write(df.describe().to_string())  # Converts summary data to a string and writes it to a .txt file
 
-#print(df.describe)
+with open('iris.txt', 'w') as f: #Opens files without having to use the close() function, write mode
+    f.write(df.describe().to_string())  # Converts summary data to a string and writes it to a .txt file
 
-#with open('iris_species.txt', 'w') as f:
-    #f.write(df.value_counts("Species").to_string())  # how may species and coount of eac, write to .txt file
+print(df.describe)
+
+with open('iris_species.txt', 'w') as f:
+    f.write(df.value_counts("Species").to_string())  # how may species and coount of eac, write to .txt file
 
 # to work with each species type separately
 # split the three species within the df 
@@ -78,7 +79,7 @@ with open('iris_species.txt', 'w') as f: # automatically closes
 # code taken from [7] for histogram
 
 
-# 1st sepal lenght
+# 1st sepal length
 
 plt.figure(figsize = (10, 7)) # change width and height of figure
 x = df["Sepal_Length"]
@@ -104,7 +105,7 @@ plt.ylabel("Count")
 plt.savefig("Hist Sepal width.png")
 
 
-# 3rd Petal Lenght
+# 3rd Petal Length
 
 plt.figure(figsize = (10, 7)) # change width and height of figure
 x = df["Petal_Length"]
@@ -149,8 +150,8 @@ plt.show()
 
 # Scatter plot of each pair of variable using Seaborn Package - Code taken from [10,11]
 
-# pair : Sepal lenght vd width 
-# pair : Petal Lenght vs Width
+# pair : Sepal length vd width 
+# pair : Petal Length vs Width
 
 
 sns.scatterplot(data=df, x='Sepal_Length', y='Sepal_Width', hue='Species', legend = 'auto')# differentiate between the three species in each scatter plot by colour/hue. Could also use
@@ -181,7 +182,7 @@ print(df.corr(method='pearson'))
  
 
 #Linear Regression model
-seaborn.regplot code taken from [16,17]
+#seaborn.regplot code taken from [16,17]
 
 
 #plot the regplot, pass x ans y variables as strings, line-kws ( pass arhuments for line in Dict
@@ -209,14 +210,12 @@ plt.show()
 
 
 
-# combining x and y arguments to plot multiple box  of sepa; length by species
+# combining x and y arguments to plot multiple box  of sepal length by species
 
 fig, ax = plt.subplots(1, figsize=(10, 10)) # change size of plot 
 sns.boxplot(data=df, x="Species", y = "Sepal_Length" )
 plt.show()
-
-
-#plt.close()
+plt.close()
 
 # MACHINE LEARNING code adapted from [20] using Sklearn
 #Supervised  machine learning
