@@ -45,7 +45,10 @@ df =  pd.read_csv(filename, names = col_names)
 #with open('iris_species.txt', 'w') as f:
     #f.write(df.value_counts("Species").to_string())  # how may species and coount of eac, write to .txt file
 
-# separated the three species within the df  
+# to work with each species type separately
+# split the three species within the df 
+#variable created for eachtype
+# code adapted from [9] 
 
 
 setosa=df[df['Species']=='Iris-setosa']
