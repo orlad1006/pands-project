@@ -48,7 +48,6 @@ df =  pd.read_csv(filename, names = col_names)
 # separated the three species within the df  
 
 
-'''
 setosa=df[df['Species']=='Iris-setosa']
 versicolor=df[df['Species']=='Iris-versicolor']
 virginica=df[df['Species']=='Iris-virginica']
@@ -62,7 +61,7 @@ virginica = str(virginica.describe())
 
 
 # write the variable *(stats for each species) a file iris_species.txt 
-with open('iris_species.txt', 'w') as f:
+with open('iris_species.txt', 'w') as f: # automatically closes
     f.write("\n SETOSA DETAILS \n") # heading one new line
     f.write(setosa)
     f.write("\n VERSICOLOR DETAILS\n") # heading one new line
@@ -179,18 +178,18 @@ print(df.corr(method='pearson'))
  
 
 #Linear Regression model
-# seaborn.regplot code taken from [16,17]
+seaborn.regplot code taken from [16,17]
 
 
 #plot the regplot, pass x ans y variables as strings, line-kws ( pass arhuments for line in Dict
 # colour, transparancy, with of line)
 
 # From the correlation coeffient 
-# #plot the variables that showed the strong positive correltion petal length and width 
-#sns.regplot(x=df["Petal_Length"], y=df["Petal_Width"], line_kws={"color":"green","alpha":0.7,"lw":5})
-#plt.show()#
-#plt.savefig(regplot_petal)
-# #plot the variables that showed the least correlation correltion petal length and width 
+# plot the variables that showed the strong positive correltion petal length and width 
+sns.regplot(x=df["Petal_Length"], y=df["Petal_Width"], line_kws={"color":"green","alpha":0.7,"lw":5})
+plt.show()#
+plt.savefig(regplot_petal)
+#plot the variables that showed the least correlation correltion petal length and width 
 sns.regplot(x=df["Sepal_Width"], y=df["Sepal_Length"], line_kws={"color":"red","alpha":0.7,"lw":5})
 
 plt.show()
@@ -226,7 +225,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
-#Code adapted from [20, 21
+#Code adapted from [20, 21]
 
 # Split the data into training and testing sets, 
 # # i.e. 70 % training dataset and 30 % test datasets test-size 0.3
@@ -247,6 +246,7 @@ accuracy = accuracy_score(y_test, y_pred)
 # output to 2 decimal places and muliple by 100 for %
 print("Accuracy: {:.2f}%".format(accuracy*100))
 
-'''
+
+
 
  
